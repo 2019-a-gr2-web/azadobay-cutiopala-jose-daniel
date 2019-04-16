@@ -15,4 +15,7 @@ export class AppController {
   postHello(){
     return 'Hola mundo en post';
   }
+
+
+  //Pergar aqui objeto JSON.
 }
