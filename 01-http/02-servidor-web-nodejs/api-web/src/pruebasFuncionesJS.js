@@ -14,3 +14,6 @@ const rForEach = arregloNumeros.forEach(
 );
 
 console.log(`R ${rForEach}`)
+
+
+//Operador MAp
