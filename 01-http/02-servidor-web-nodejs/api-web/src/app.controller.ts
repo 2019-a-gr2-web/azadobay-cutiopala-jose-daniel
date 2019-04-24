@@ -1,5 +1,9 @@
-import { Controller, Get, Post, HttpCode, Put, Delete, Headers } from '@nestjs/common';
+import { Controller, Get, Post, HttpCode, Put, Delete, Headers, Request, Response } from '@nestjs/common';
 import { AppService } from './app.service';
+import * as Joi from '@hapi/joi';
+
+
+// Libreria para validaciones
 
 @Controller('/api')
 export class AppController {
@@ -38,7 +42,71 @@ export class AppController {
       return 'Ok';
     }
 
-    return 'No Ok `${random}`' ;
+    return 'No Ok `${random}`';
+  }
+
+  @Get('/user')
+  getUser(
+    @Request() req,
+    @Response() res
+  ){
+    const userName = req.query.userName;
+    console.log(req.query);
+
+    if(userName){
+      console.log('Usuario Creado');   
+      res
+      .status(200)
+      .cookie("nombreUsuario",`${userName}`)
+      .send({
+        nombreUsuario: `${userName}`,
+        resultado: "200 OK"
+      })
+    } else {
+      res.send("Error")
+    }
+  }
+
+
+  @Get('/semilla')
+  semilla(
+    @Request() request,
+    @Response() response
+  ) {
+
+    console.log(request.cookies);
+    console.log(typeof (request.cookies));
+    const cookies = request.cookies;
+
+    const cookieSegura = request.signedCookies.fechaServidor;
+
+    if (cookieSegura){
+      console.log('Cookie Segura');
+      console.log(cookieSegura);
+
+    }else{
+      console.log('Cookie InSegura');
+    }
+
+
+
+    if (cookies.miCookie) {
+
+      const horaFechaServidor = new Date();
+      const minutos = horaFechaServidor.getMinutes();
+      horaFechaServidor.setMinutes(minutos + 1);
+
+      response.cookie(
+        'fechaServidor',   //Key Nombre
+        new Date().getTime(),// Value Valor
+        {
+         signed: true,
+        expires: horaFechaServidor
+        });
+      response.send('ok');
+    } else {
+      response.send(':(');
+    }
   }
 
 
@@ -136,3 +204,22 @@ objeto.propiedadTres = 'valor3';
 objeto['propiedadTres'] = 'valor 3';
 delete objeto.propiedadTres; // -> destruir
 objeto.propiedadTres = undefined; // -> destruir forma segura
+
+
+// Igualarse clase de cookies
+
+/*
+//poner cookie desde el servidor
+if(CookieAccessInfo.micookie) {
+  response.cookie('fechaServidor' //Se envia como primer parametro el nombre  (Key)
+  ,new Date // Segundo parametro el valor
+  ,{
+    expires: new Date()
+  } );  // Tercer Parametro las opciones
+
+  //Cookie Segura e Insegura
+  //request.coookies ---> Cookies no segura
+  //request.signed.cookies ---> cookies seguras.
+
+
+};*/
