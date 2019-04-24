@@ -45,7 +45,7 @@ export class AppController {
       return res.send({ mensaje: 'Operacion Exitosa',
     respuesta: 'Ver Cabeceras' });
     } else {
-      return res.send({ mensaje: 'No se pudo realizar la divicion' });
+      return res.send({ mensaje: 'No se pudo realizar la division' });
     }
   }
 
