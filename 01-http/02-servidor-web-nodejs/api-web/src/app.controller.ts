@@ -110,6 +110,13 @@ export class AppController {
   }
 
 
+  @Get('inicio')
+  inicio(@Response() res){
+    return res.render('inicio');
+  }
+
+
+  
   // Pergar aqui objeto JSON.
 }
 
@@ -223,3 +230,13 @@ if(CookieAccessInfo.micookie) {
 
 
 };*/
+
+
+if(""){
+  console.log("V");
+  }else{
+  
+    console.log("F");
+  }
+
+
