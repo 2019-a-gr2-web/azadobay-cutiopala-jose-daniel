@@ -109,11 +109,28 @@ export class AppController {
     }
   }
 
+  @Get('inicio') // endpoint
+    inicio(
+        @Response() res
+    ) {
+        return res.render(
+            'inicio',
+            {
+                estaVivo: false
+            });
+    }
 
-  @Get('inicio')
-  inicio(@Response() res){
-    return res.render('inicio');
-  }
+  @Get('peliculas')
+  peliculas(
+    @Response() res
+) {
+    return res.render(
+        'peliculas/inicio',
+        {
+
+        });
+}
+
 
 
   
