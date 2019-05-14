@@ -1,6 +1,6 @@
 import { Controller, Get, Post, HttpCode, Put, Delete, Headers, Request, Response } from '@nestjs/common';
 import { AppService } from './app.service';
-import * as Joi from '@hapi/joi';
+//import * as Joi from '@hapi/joi';
 
 
 // Libreria para validaciones
