@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Estilos</title>
 
+    <link rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+
+
     <style>
         /* comentarios*/
         /* selector {p1:valor; p2: valor} */
@@ -53,14 +59,60 @@
         
         }
 
+        .modelo-cajas{
+            border-color: aqua;
+            border-style: solid;
+            border-width: 100px;
+
+        }
+
+        .separador{
+            margin-top: 200px;
+            margin-bottom: 200px;   
+        }
+
+        .bootstrap{
+            color: black;
+            background-color: white;
+        }
+
     </style>
 
 
-
 </head>
+
 <body>
+
+    <div class="container" >
+        <div class="row">
+            <!-- col - sm/md/lg -# 1-12
+            <div class="col-sm-12"> 
+                <h1> Columna de 12 </h1>
+            </div>
+            <div class="col-sm-6"> 
+                <h1> Columna de 6 </h1>
+            </div>
+            <div class="col-sm-6"> 
+                <h1> Columna de 6 </h1>
+            </div> -->
+
+            <div class="col-sm-3"> 
+                    <h1 class = "bootstrap"> Columna de 3 </h1>
+                </div>
+                <div class="col-sm-6"> 
+                        <h1 class = "bootstrap"> Columna de 6 </h1>
+                    </div>
+                    <div class="col-sm-3"> 
+                            <h1 class = "bootstrap"> Columna de 3 </h1>
+                        </div>
+            
+        </div>
+    </div>
+    
+
+<div class="separador"></div>
     <h1> Hola </h1>
-    <h1 id="adios" class="verde"  style="color:yellow;background-color: black"> Adios </h1>
+    <h1 id="adios" class="verde modelo-cajas"   style="color:yellow;background-color: black"> Adios </h1>
     <h1 class="verde" > Bienvenidos </h1>
 
     <p > Barcelona </p>
@@ -75,4 +127,7 @@
 
     <p class=" azul  verde morado" > Ultimo parafo </p>
 </body>
+
+
+
 </html>
