@@ -140,6 +140,14 @@ export class AppController {
 }
 
 
+@Get('nacional')
+nacional(
+    @Response() res
+) {
+    return res.render(
+        'peliculas/inicioNacional');
+}
+
   
   // Pergar aqui objeto JSON.
 }
