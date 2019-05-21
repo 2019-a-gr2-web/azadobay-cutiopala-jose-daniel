@@ -1,7 +1,7 @@
 export interface Trago{
-    id: number;
+    id?: number;
     nombre: string;
-    tipo: 'Ron' | 'Vokda' | 'Whiskey' | 'Tequila'; 
+    tipo: 'Ron' | 'Vokda' | 'Whiskey' | 'Tequila' | 'çerveza'; 
     gradoAlcohol: number;
     fechaCaducidad: Date;
     precio: number; 

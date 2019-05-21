@@ -3,7 +3,7 @@ import { TragosController } from "./tragos.controller";
 import { TragosService } from "./tragos.service";
 
 @Module({
-    imports: [], //Modulos
+imports: [], //Modulos
   controllers: [
       TragosController
   ], //Controladores

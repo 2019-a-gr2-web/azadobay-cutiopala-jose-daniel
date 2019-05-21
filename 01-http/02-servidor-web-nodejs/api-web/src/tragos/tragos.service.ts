@@ -7,6 +7,18 @@ export class TragosService{
     bddTragos: Trago[] = [];
     recnum=1;
 
+    constructor(){
+        const trago: Trago ={
+            nombre: 'Club',
+            tipo: 'Ron',
+            gradoAlcohol:5,
+            fechaCaducidad: new Date(2019,5,21),
+            precio:2
+        }
+
+        this.crear(trago)
+    }
+
     crear(nuevoTrago:Trago ){
 
         nuevoTrago.id = this.recnum;
