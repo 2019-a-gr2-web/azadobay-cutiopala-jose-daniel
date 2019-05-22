@@ -1,4 +1,12 @@
-<table>
+<style>
+    table,th,tr,td{
+        border: solid red 1px;
+    }
+</style>
+
+<button> Crear </button>
+<table style="
+width: 100%">
         <tr>
             <th>Nombre</th>
             <th>Grados</th>
@@ -10,7 +18,7 @@
         <% arreglosTragos.forEach((trago)=>{ %>
             <tr>
                 <td> <%=trago.nombre%> </td>
-                <td> <%=trago.gradosAlcohol%> </td>
+                <td> <%=trago.gradoAlcohol%> </td>
                 <td> <%=trago.fechaCaducidad%> </td>
                 <td> <%=trago.precio%> </td>
                 <td> <%=trago.tipo%> </td>
