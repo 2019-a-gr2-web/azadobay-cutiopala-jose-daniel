@@ -12,6 +12,7 @@ export class TragosController{
     @Get('lista')
     listarTragos(@Res() res){
         const arreglosTragos = this._tragosService.bddTragos;
+        
         res.render('tragos/lista-tragos',
         {
             arreglosTragos: arreglosTragos
