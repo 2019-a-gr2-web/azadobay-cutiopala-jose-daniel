@@ -38,14 +38,15 @@ export class EntrenadorService{
     }
 
     constructor(){
-        const miEntrenador:Entrenador = {
-            nombres:'Leonardo A',
-            apellidos:'Sandoval C',
-            fechaNacimiento:new Date(2019,8, 23),
-            numeroMedalla:1712138393,
+        const nuevoEntrenador:Entrenador = {
+            nombres:'Jose',
+            apellidos:'Az',
+            fechaNacimiento:new Date(1996,1, 14),
+            numeroMedalla:1000,
             campeonActual:true
 
         };
-        this.crear(miEntrenador);
+        this.crear(nuevoEntrenador
+            );
     }
 }
