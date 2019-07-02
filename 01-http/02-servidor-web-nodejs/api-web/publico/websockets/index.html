@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- CLIENTEEEEEEEEEEEEe -->
+    <script src="/websockets/socket.io.js"> </script>
+    <script>
+        const url = 'http://localhost:3001/websockets';
+        const socket = io(url)
+        console.log('Ya mismo nos conectamos :D')
+
+        socket.on(
+            'connect', //nombre del evento
+            () => {  //funcion con lo que queremos que nos devuelva el evnto
+                console.log('Estamos conectados !!')
+                //socket.disconnect();
+                //setTimeout(
+                //  ()=>{
+                //    socket.connect();
+                //},3000
+                //)
+            }
+        ); //Evento que queremos escuchar
+        /*
+                socket.on(
+                    'disconnect',
+                    ()=>{
+                        console.log('Nos desconectamos')
+                    }
+                )*/
+
+
+        socket.on(
+            'saludaron',
+            (data) => {
+                console.log('Nos saludaron', data);
+            }
+        )
+        function peticionHolaMundo() {
+            const nombreMetodo = 'holaMundo';
+            const datos = {
+                nombre: 'Jose'
+            };
+            socket.emit(
+                nombreMetodo,
+                datos,
+                (respuesta) => { //calback
+                    console.log(respuesta);
+                }
+            );
+        }
+    </script>
+</body>
+
+</html>

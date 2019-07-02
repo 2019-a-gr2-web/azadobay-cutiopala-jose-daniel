@@ -12,7 +12,7 @@ export class AppController {
   menu(@Res() res,
        @Req() req){
     if(this._loginService.validarCookies(req,res)){
-      res.render('inicio.ejs',{
+      res.render('inicio',{
         usuario:req.signedCookies.usuario
 
       });
@@ -37,13 +37,7 @@ export class AppController {
       @Body('usuario')usuario:string,
       @Res() res
   ){
-    res.cookie(
-        'usuario',
-        usuario,
-        {
-          signed: true
-        }
-    ).redirect('/examen/inicio');
+    res.cookie('usuario',usuario,{signed: true}).redirect('/examen/inicio');
   }
 
 
@@ -60,8 +54,6 @@ export class AppController {
       });
     }
   }
-
-
 
 
 }

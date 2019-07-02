@@ -1,4 +1,4 @@
-import {Controller, Get, Response, Body, Request, Post, Res, Req} from "@nestjs/common";
+import {Controller, Get, Response, Body, Request, Post, Res, Req,Headers} from "@nestjs/common";
 import {EntrenadorService} from "./entrenador.service";
 import {LoginService} from "../Login/login.service";
 import {Entrenador} from "../Interfaces/Entrenador";
@@ -65,6 +65,14 @@ export class EntrenadorController{
         }
     }
 
+    @Post('/borrarCookie')
+    borrarCookie(@Headers() headers, 
+    @Request() request, 
+    @Response() response, 
+    @Body('nombre') nombre: string) {
+        response.clearCookie("nombreUsuario");
+        response.redirect('/api/login')
+    }
 
 
 }

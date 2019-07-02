@@ -1,31 +1,42 @@
+<% const nombreUsuario = 'Adrian' ;%>
+<%- include('../componentes/menu/menu',{nombre:nombreUsuario}) %>
+
 <style>
-    table,th,tr,td{
-        border: solid red 1px;
+    table,tr,td, th{
+        border: solid black 1px
     }
 </style>
 
-<button> Crear </button>
-<table style="
-width: 100%">
+<a href="/api/traguito/crear">
+    <button>Crear</button>
+</a>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Grados</th>
+        <th>Caduca</th>
+        <th>Precio</th>
+        <th>Tipo</th>
+        <th>Acciones</th>
+    </tr>
+    <% arregloTragos.forEach((trago)=>{ %>
         <tr>
-            <th>Nombre</th>
-            <th>Grados</th>
-            <th>Caduca</th>
-            <th>Precio</th>
-            <th>Tipo</th>
-            <th>Acciones</th>
+            <td> <%=trago.nombre%> </td>
+            <td> <%=trago.gradosAlcohol%> </td>
+            <td> <%=trago.fechaCaducidad%> </td>
+            <td> <%=trago.precio%> </td>
+            <td> <%=trago.tipo%> </td>
+            <td>
+                
+                <a href="/api/traguito/editar?id=<%=trago.id%>"><button>Editar</button> </a>
+                
+                <button>Eliminar</button>
+            </td>
         </tr>
-        <% arreglosTragos.forEach((trago)=>{ %>
-            <tr>
-                <td> <%=trago.nombre%> </td>
-                <td> <%=trago.gradoAlcohol%> </td>
-                <td> <%=trago.fechaCaducidad%> </td>
-                <td> <%=trago.precio%> </td>
-                <td> <%=trago.tipo%> </td>
-                <td>
-                    <button>Editar</button>
-                    <button>Eliminar</button>
-                </td>
-            </tr>
-        <% })%>
-    </table>
+    <% })%>
+</table>
+
+
+<%- include('../componentes/footer/footer') %>
+
